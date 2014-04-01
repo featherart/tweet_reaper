@@ -9,11 +9,20 @@
   </ul>
 <% end %>
 
-<% if params[:friend1] %>
-  <h5>Here are friends for <%= params[:friend1] %>
-  <ul>
+<% if params[:friend] %>
+  <h5>Here are friends for <%= params[:friend] %>
+  <ol>
     <% @friends.each do |friend| %>
-      <li><%= friend.name %></li>
+      <li><%= friend %></li>
+    <% end %>
+  </ol>
+<% end %>
+
+<% if params[:friend1] && params[:friend2] %>
+  <h5>Here are friends for <%= params[:friend1] %> & <%= params[:friend2] %>
+  <ul>
+    <% @intersection.each do |friend| %>
+      <li><%= friend %></li>
     <% end %>
   </ul>
 <% end %>

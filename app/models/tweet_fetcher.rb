@@ -17,7 +17,15 @@ class TweetFetcher < ActiveRecord::Base
     end
 
     def self.friend_fetch(name)
-      @client.friends(name)
+      #only grab first 100 or it gets mad at you
+      @client.friends(name).take(100)
     end
 
+    # nope
+    def self.get_many_friends(name)
+      friends = @client.friends(name)
+      2.times.collect do
+        friends.take(20)
+      end
+    end
 end

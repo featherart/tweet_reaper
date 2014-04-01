@@ -6,6 +6,7 @@ gem 'twitter', '~> 5.8.0'
 gem 'figaro'
 gem 'pg'
 gem 'json'
+#gem 'angularjs-rails'
 
 group :development, :test do
   gem 'pry'
