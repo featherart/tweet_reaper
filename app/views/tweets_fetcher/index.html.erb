@@ -1,0 +1,19 @@
+<h1>Tweet Fetcher</h1>
+
+<% if params[:user] %>
+  <h5>Here are tweets for <%= params[:user] %>
+  <ul>
+   <% @tweets.each do |tweet| %> 
+    <li><%= tweet.text %></li>
+   <% end %>
+  </ul>
+<% end %>
+
+<% if params[:friend1] %>
+  <h5>Here are friends for <%= params[:friend1] %>
+  <ul>
+    <% @friends.each do |friend| %>
+      <li><%= friend.name %></li>
+    <% end %>
+  </ul>
+<% end %>
