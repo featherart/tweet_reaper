@@ -1,9 +1,13 @@
 <h1>Tweet Reaper</h1>
 
-<div id="ng-controller">
+<div ng-controller="twitUserCtrl">
   <form>
     <input type="text" ng-model="twitterUser.name">
+    <button ng-click="reset()">RESET</button>
+    <button ng-click="update(twitterUser)">SAVE</button>
   </form>
+  <pre>form = {{twitterUser | json}}</pre>
+  <pre>master = {{master | json}}</pre>
 </div>
 {{twitterUser.name}}
 
