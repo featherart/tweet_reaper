@@ -1,5 +1,12 @@
 <h1>Tweet Reaper</h1>
 
+<div id="ng-controller">
+  <form>
+    <input type="text" ng-model="twitterUser.name">
+  </form>
+</div>
+{{twitterUser.name}}
+
 <% if params[:user] %>
   <h5>Here are tweets for <%= params[:user] %>
   <ul>
