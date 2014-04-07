@@ -1,7 +1,7 @@
 <div ng-app="formApp" ng-controller="formController">
-  <form>
-    <input type="text" size="70" ng-model="formData.name" placeholder="enter Twitter username">
-    <button ng-submit="processForm()">
+  <form ng-submit="processForm()">
+    <input type="text" size="70" ng-model="formData.user" placeholder="enter Twitter username">
+    <button type="submit">
       enter
     </button>
   </form>

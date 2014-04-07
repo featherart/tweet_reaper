@@ -1,6 +1,7 @@
 class TweetsFetcherController < ApplicationController
   def index
     puts "**************"
+    puts "in index"
     p params
     puts "**************" 
     if params[:user]
@@ -25,8 +26,21 @@ class TweetsFetcherController < ApplicationController
     end
 
     respond_to do |format|
-      format.html
+      format.html { render root_path }
       format.json {render json: @tweets}
+    end
+  end
+
+  def create
+    puts "*"*50
+    puts "in create"
+    p params
+    puts "*"*50
+    @twitter_user = TwitterUser.create(params[:twitter_user])
+    binding.pry
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
     end
   end
 end
