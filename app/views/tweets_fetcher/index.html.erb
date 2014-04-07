@@ -1,24 +1,15 @@
-<h1>Tweet Reaper</h1>
-<div ng-controller="MyController">
-  Your name:
-    <input type="text" ng-model="username">
-    <button ng-click='sayHello()'>greet</button>
-  <hr>
-  {{greeting}}
-  <hr>
-</div>
-
-
-<div ng-controller="twitUserCtrl">
+<div ng-app="formApp" ng-controller="formController">
   <form>
-    <input type="text" ng-model="twitterUser.name">
-    <button ng-click="reset()">RESET</button>
-    <button ng-click="update(twitterUser)">SAVE</button>
+    <input type="text" size="70" ng-model="formData.name" placeholder="enter Twitter username">
+    <button ng-submit="processForm()">
+      enter
+    </button>
   </form>
-  <pre>form = {{twitterUser | json}}</pre>
-  <pre>master = {{master | json}}</pre>
+  <pre>
+    {{ formData }}
+  </pre>
 </div>
-{{twitterUser.name}}
+
 
 <% if params[:user] %>
   <h5>Here are tweets for <%= params[:user] %>

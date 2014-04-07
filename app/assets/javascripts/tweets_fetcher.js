@@ -1,21 +1,12 @@
-function twitUserCtrl($scope) {
-  $scope.master = {};
+var formApp = angular.module('formApp', []);
+function formController($scope, $http) {
+  console.log("in controller");
+  
+  // blank object to hold form data
+  $scope.formData = {};
 
-  $scope.update = function(twitterUser) {
-    $scope.master = angular.copy(twitterUser);
-  };
+  // function to process data
+  $scope.processForm = function() {
 
-  $scope.reset = function() {
-    $scope.twitterUser = angular.copy($scope.master);
-  };
-
-  $scope.reset();
-}
-
-function MyController($scope) {
-  $scope.username = 'World';
- 
-  $scope.sayHello = function() {
-    $scope.greeting = 'Hello ' + $scope.username + '!';
   };
 }
