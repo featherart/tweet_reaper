@@ -1,9 +1,13 @@
 class TweetsFetcherController < ApplicationController
+  respond_to :json
+
   def index
     puts "**************"
     puts "in index"
     p params
     puts "**************" 
+    @tweets = []
+
     if params[:name]
       @tweets = TweetFetcher.tweet_fetch(params[:name])
     end
@@ -26,11 +30,7 @@ class TweetsFetcherController < ApplicationController
     end
 
     respond_to do |format|
-<<<<<<< HEAD
       format.html #{ render root_path }
-=======
-      format.html { render root_path }
->>>>>>> c6f9a7d6d72306423a928a2882ed2f111ddbbecc
       format.json {render json: @tweets}
     end
   end
@@ -40,18 +40,22 @@ class TweetsFetcherController < ApplicationController
     puts "in create"
     p params
     puts "*"*50
-<<<<<<< HEAD
-    #respond_to :json
+
+    #@twitter_user = TwitterUser.create(params[:twitter_user])
     @tweets = TweetFetcher.tweet_fetch(params[:name])
-    #binding.pry
+
+    #respond_with @tweets
+    
+    #respond_with Tweet.create(name: params[:name], text: @tweets.first.text)
+    
+  
     redirect_to :back
-=======
-    @twitter_user = TwitterUser.create(params[:twitter_user])
-    binding.pry
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.js
-    end
->>>>>>> c6f9a7d6d72306423a928a2882ed2f111ddbbecc
+
+    #render nothing: true
+    #binding.pry
+    # respond_to do |format|
+    #   format.html {redirect_to root_path}#{ render nothing: true }
+    #   format.json {render json: @tweets}
+    # end    
   end
 end

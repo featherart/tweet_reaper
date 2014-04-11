@@ -72,6 +72,7 @@ GEM
     multi_json (1.9.2)
     multipart-post (2.0.0)
     naught (1.0.0)
+    ng-rails-csrf (0.1.0)
     pg (0.17.1)
     polyglot (0.3.4)
     pry (0.9.12.6)
@@ -165,6 +166,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   figaro
   jquery-rails
+  ng-rails-csrf
   pg
   pry
   pry-rails

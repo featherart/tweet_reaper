@@ -11,9 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140407212956) do
+ActiveRecord::Schema.define(:version => 20140411013116) do
 
   create_table "tweet_fetchers", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tweets", :force => true do |t|
+    t.string   "name"
+    t.string   "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

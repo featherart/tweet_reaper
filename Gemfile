@@ -7,6 +7,7 @@ gem 'pg'
 #gem 'json'
 gem 'jquery-rails'
 gem 'unicorn'
+gem 'ng-rails-csrf'
 
 group :development, :test do
   gem 'pry'
