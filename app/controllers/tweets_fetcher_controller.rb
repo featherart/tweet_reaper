@@ -1,10 +1,11 @@
 class TweetsFetcherController < ApplicationController
   def index
     puts "**************"
+    puts "in index"
     p params
     puts "**************" 
-    if params[:user]
-      @tweets = TweetFetcher.tweet_fetch(params[:user])
+    if params[:name]
+      @tweets = TweetFetcher.tweet_fetch(params[:name])
     end
 
     if params[:friend]
@@ -25,8 +26,19 @@ class TweetsFetcherController < ApplicationController
     end
 
     respond_to do |format|
-      format.html
+      format.html #{ render root_path }
       format.json {render json: @tweets}
     end
+  end
+
+  def create
+    puts "*"*50
+    puts "in create"
+    p params
+    puts "*"*50
+    #respond_to :json
+    @tweets = TweetFetcher.tweet_fetch(params[:name])
+    #binding.pry
+    redirect_to :back
   end
 end

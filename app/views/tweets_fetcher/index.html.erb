@@ -1,18 +1,29 @@
 <div ng-app="formApp" ng-controller="formController">
-  <form>
+  <form ng-submit="processForm()">
     <input type="text" size="70" ng-model="formData.name" placeholder="enter Twitter username">
-    <button ng-submit="processForm()">
+    <button type="submit">
       enter
     </button>
   </form>
   <pre>
     {{ formData }}
   </pre>
+
+  <ul>
+    <li ng-repeat="tweet in tweets">
+      {{tweet.text}}
+    </li>
+  </ul>
 </div>
+<ol>
+<% if @tweets %>
+  <% @tweets.each do |t| %>
+  <li>t.text</li>
+  <% end %>
+<% end %>
 
-
-<% if params[:user] %>
-  <h5>Here are tweets for <%= params[:user] %>
+<% if params[:name] %>
+  <h5>Here are tweets for <%= params[:name] %>
   <ul>
    <% @tweets.each do |tweet| %> 
     <li><%= tweet.text %></li>
