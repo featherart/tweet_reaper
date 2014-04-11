@@ -16,11 +16,6 @@
   </ul>
 </div>
 <ol>
-<% if @tweets.length > 0 %>
-  <% @tweets.each do |t| %>
-  <li>t.text</li>
-  <% end %>
-<% end %>
 
 <% if params[:name] %>
   <h5>Here are tweets for <%= params[:name] %>

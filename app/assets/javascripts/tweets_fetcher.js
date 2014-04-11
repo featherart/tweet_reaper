@@ -7,25 +7,22 @@ function formController($scope, $http) {
   
   // function to process data
   $scope.processForm = function() {
-    console.log("in form process");
-    console.log($.param($scope.formData));
-    var attr = {};
-    
     $http({
-      method: 'GET',
-      url: '/create',
-      data: {
-        name: $scope.formData.name
-      },
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+        method  : 'GET',
+        url     : '/create',
+        data    : {
+          name: $scope.formData.name 
+        },
+        headers : { 'Content-Type': 'application/x-www-form-urlencoded' },  // set the headers so angular passing info as form data (not request payload)
     })
-    .success(function(data) {
+    .success(function(data, status, headers, config) {
       console.log("success!");
       $scope.error = false;
+      $scope.data = data;
       
-      console.log(data);
-      debugger;
-      attr.name = $scope.formData.name;
+      //console.log(data);
+      //debugger;
+      // attr.name = $scope.formData.name;
       if(!data.success) {
         // if not success, bind data to error vars
         $scope.errorName = data.errors;

@@ -43,13 +43,12 @@ class TweetsFetcherController < ApplicationController
 
     #@twitter_user = TwitterUser.create(params[:twitter_user])
     @tweets = TweetFetcher.tweet_fetch(params[:name])
-
+    #binding.pry
     #respond_with @tweets
     
     #respond_with Tweet.create(name: params[:name], text: @tweets.first.text)
     
-  
-    redirect_to :back
+    redirect_to "/?friend=featherart"
 
     #render nothing: true
     #binding.pry
